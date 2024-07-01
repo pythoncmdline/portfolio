@@ -114,3 +114,23 @@ window.addEventListener('DOMContentLoaded', adjustZoom);
 window.addEventListener('resize', adjustZoom);
 
 
+function showMessageIfNeeded() {
+  const minHeight = 1000;
+  if (window.innerWidth < minHeight) {
+    alert('Please access this website on a device with a higher resolution.');
+    document.body.innerHTML = '<div style="color: white; text-align: center; padding: 20px;">Please access this website on a different device (this website is optimized for 1920x1080 FHD and 1280x720 HD Resolutions)</div>';
+  }
+
+  if (window.innerWidth > 1921) {
+    alert('Please access this website on a device with a width of 1920 pixels or less.');
+    document.body.innerHTML = '<div style="color: white; text-align: center; padding: 20px;">Please access this website on a different device (this website is optimized for 1920x1080 FHD  and 1280x720 HD  Resolutions)</div>';
+  }
+}
+
+function adjustLayout() {
+  adjustZoom();
+  showMessageIfNeeded();
+}
+
+window.addEventListener('DOMContentLoaded', adjustLayout);
+window.addEventListener('resize', adjustLayout);
